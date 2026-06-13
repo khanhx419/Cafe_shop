@@ -1,0 +1,110 @@
+.header-container {
+  height: var(--header-height);
+  padding: 0 32px;
+  background-color: rgba(18, 16, 26, 0.7);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: 99;
+}
+
+.header-page-title {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  background: linear-gradient(135deg, var(--text-primary) 30%, var(--text-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.sandbox-widget {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(247, 201, 72, 0.08);
+  border: 1px solid rgba(247, 201, 72, 0.15);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  color: var(--accent-secondary);
+  font-size: 0.8rem;
+  font-family: var(--font-display);
+  font-weight: 500;
+}
+
+.sandbox-icon {
+  animation: pulse-sandbox 2s infinite ease-in-out;
+}
+
+@keyframes pulse-sandbox {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.time-widget {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.clock-icon {
+  color: var(--accent-primary);
+}
+
+.divider {
+  color: var(--border);
+}
+
+.user-profile {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-left: 8px;
+}
+
+.profile-avatar {
+  width: 36px;
+  height: 36px;
+  background-color: var(--border-focus);
+  border: 2px solid var(--accent-primary);
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 0.85rem;
+  color: var(--accent-primary);
+  font-family: var(--font-display);
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-name {
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.profile-role {
+  font-size: 0.7rem;
+  color: var(--text-muted);
+  font-weight: 500;
+}

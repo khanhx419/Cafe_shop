@@ -1,0 +1,323 @@
+.inventory-page-container {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 28px;
+}
+
+@media (max-width: 1024px) {
+  .inventory-page-container {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ==========================================================================
+   LEFT COLUMN: COMPOSITE INVENTORY
+   ========================================================================== */
+
+.inventory-tree-card {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.inventory-tree {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.tree-container-group {
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: var(--bg-secondary);
+  overflow: hidden;
+}
+
+.tree-container-header {
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  background: rgba(255, 255, 255, 0.01);
+  user-select: none;
+  transition: background-color var(--transition-fast);
+}
+
+.tree-container-header:hover {
+  background: rgba(255, 107, 53, 0.02);
+}
+
+.container-title {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 1.05rem;
+}
+
+.container-icon {
+  color: var(--accent-primary);
+}
+
+.container-meta {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.inventory-item-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  border-bottom: 1px solid var(--border);
+  transition: background-color var(--transition-fast);
+  background: var(--bg-card);
+}
+
+.inventory-item-row:last-child {
+  border-bottom: none;
+}
+
+.inventory-item-row:hover {
+  background: rgba(255, 107, 53, 0.02);
+}
+
+.item-dot {
+  width: 8px;
+  height: 8px;
+  background-color: var(--border-focus);
+  border-radius: 50%;
+}
+
+.item-unit {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+  margin-top: 4px;
+}
+
+.item-quantity-status {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.low-stock-alert {
+  color: var(--danger);
+  animation: pulse-danger-icon 1.5s infinite;
+}
+
+@keyframes pulse-danger-icon {
+  0%, 100% { opacity: 0.6; }
+  50% { opacity: 1; }
+}
+
+.qty-value {
+  font-family: var(--font-display);
+  font-weight: 700;
+  color: var(--text-primary);
+  font-size: 1.05rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  padding: 4px 12px;
+  border-radius: var(--radius-sm);
+}
+
+.qty-value.low {
+  color: var(--danger);
+  border-color: rgba(239, 68, 68, 0.2);
+  background: rgba(239, 68, 68, 0.05);
+}
+
+/* ==========================================================================
+   RIGHT COLUMN: TRANSACTION PANEL
+   ========================================================================== */
+
+.inventory-sidebar-column {
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.action-type-selector {
+  display: flex;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  padding: 2px;
+  gap: 2px;
+}
+
+.btn-action-type {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  padding: 8px 0;
+  font-family: var(--font-display);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 6px;
+  transition: all var(--transition-fast);
+  color: var(--text-secondary);
+}
+
+.btn-action-type.import.active {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--success);
+}
+
+.btn-action-type.export.active {
+  background: rgba(255, 107, 53, 0.12);
+  color: var(--accent-primary);
+}
+
+/* Undo Header block button */
+.btn-undo-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(247, 201, 72, 0.08);
+  border: 1px solid rgba(247, 201, 72, 0.2);
+  border-radius: var(--radius-sm);
+  padding: 6px 12px;
+  font-family: var(--font-display);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--accent-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-undo-action:hover:not(:disabled) {
+  background: var(--accent-secondary);
+  color: #000;
+  box-shadow: 0 0 10px var(--accent-secondary-glow);
+}
+
+.btn-undo-action:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+  background: transparent;
+  border-color: var(--border);
+  color: var(--text-muted);
+}
+
+/* Inventory History List */
+.inventory-log-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  overflow-y: auto;
+  max-height: 400px;
+  padding-right: 4px;
+}
+
+.history-empty {
+  text-align: center;
+  padding: 48px 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.log-history-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  overflow: hidden;
+  transition: all var(--transition-fast);
+}
+
+.log-history-card.import {
+  border-left: 3px solid var(--success);
+}
+
+.log-history-card.export {
+  border-left: 3px solid var(--accent-primary);
+}
+
+.log-header-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.log-action-tag {
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+}
+
+.import .log-action-tag {
+  color: var(--success);
+}
+
+.export .log-action-tag {
+  color: var(--accent-primary);
+}
+
+.log-time {
+  font-size: 0.75rem;
+  color: var(--text-muted);
+}
+
+.log-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+}
+
+.log-footer-flex {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.75rem;
+  color: var(--text-secondary);
+  border-top: 1px dashed var(--border);
+  padding-top: 8px;
+  margin-top: 2px;
+}
+
+/* Reverted undone overlay state */
+.log-history-card.undone {
+  opacity: 0.45;
+}
+
+.log-history-card.undone .log-title {
+  text-decoration: line-through;
+  color: var(--text-muted);
+}
+
+.undone-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(10, 9, 15, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2;
+}
+
+.undone-overlay span {
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-full);
+  padding: 4px 10px;
+  font-family: var(--font-display);
+  font-size: 0.7rem;
+  font-weight: 600;
+  color: var(--text-secondary);
+}

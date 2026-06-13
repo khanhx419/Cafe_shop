@@ -1,0 +1,34 @@
+package com.coffeeshop.entity;
+
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+
+@Entity
+public class Topping {
+    @Id
+    private String id;
+    private String name;
+    private int price;
+    private boolean available;
+
+    public Topping() {}
+
+    public Topping(String id, String name, int price, boolean available) {
+        this.id = id;
+        this.name = name;
+        this.price = price;
+        this.available = available;
+    }
+
+    public String getId() { return id; }
+    public void setId(String id) { this.id = id; }
+
+    public String getName() { return name; }
+    public void setName(String name) { this.name = name; }
+
+    public int getPrice() { return price; }
+    public void setPrice(int price) { this.price = price; }
+
+    public boolean isAvailable() { return available; }
+    public void setAvailable(boolean available) { this.available = available; }
+}

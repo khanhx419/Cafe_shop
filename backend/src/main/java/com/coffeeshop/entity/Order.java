@@ -1,6 +1,6 @@
 package com.coffeeshop.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 import java.util.List;
 
@@ -23,10 +23,20 @@ public class Order {
     @Column(nullable = false)
     private String status; // e.g. NEW, IN_PROGRESS, DONE, CANCELLED
 
+    private int totalPrice;
+
+    private boolean isPriority;
+
     public Order() {}
 
     public Long getId() { return id; }
     public void setId(Long id) { this.id = id; }
+
+    public int getTotalPrice() { return totalPrice; }
+    public void setTotalPrice(int totalPrice) { this.totalPrice = totalPrice; }
+
+    public boolean isPriority() { return isPriority; }
+    public void setPriority(boolean isPriority) { this.isPriority = isPriority; }
 
     public List<OrderItem> getItems() { return items; }
     public void setItems(List<OrderItem> items) { this.items = items; }

@@ -1,6 +1,6 @@
 package com.coffeeshop.entity;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
 import java.util.Date;
 
 @Entity
@@ -14,13 +14,25 @@ public class InventoryHistory {
     private Inventory inventory;
 
     @Column(nullable = false)
-    private int amountChanged;
+    private String actionType; // IMPORT, EXPORT
 
     @Column(nullable = false)
-    private Date changedAt = new Date();
+    private int quantityBefore;
 
     @Column(nullable = false)
-    private String reason;
+    private int quantityAfter;
+
+    @Column(nullable = false)
+    private int quantityChanged;
+
+    @Column(nullable = false)
+    private String performedBy;
+
+    @Column(nullable = false)
+    private boolean undone = false;
+
+    @Column(nullable = false)
+    private Date timestamp = new Date();
 
     public InventoryHistory() {}
 
@@ -30,12 +42,24 @@ public class InventoryHistory {
     public Inventory getInventory() { return inventory; }
     public void setInventory(Inventory inventory) { this.inventory = inventory; }
 
-    public int getAmountChanged() { return amountChanged; }
-    public void setAmountChanged(int amountChanged) { this.amountChanged = amountChanged; }
+    public String getActionType() { return actionType; }
+    public void setActionType(String actionType) { this.actionType = actionType; }
 
-    public Date getChangedAt() { return changedAt; }
-    public void setChangedAt(Date changedAt) { this.changedAt = changedAt; }
+    public int getQuantityBefore() { return quantityBefore; }
+    public void setQuantityBefore(int quantityBefore) { this.quantityBefore = quantityBefore; }
 
-    public String getReason() { return reason; }
-    public void setReason(String reason) { this.reason = reason; }
+    public int getQuantityAfter() { return quantityAfter; }
+    public void setQuantityAfter(int quantityAfter) { this.quantityAfter = quantityAfter; }
+
+    public int getQuantityChanged() { return quantityChanged; }
+    public void setQuantityChanged(int quantityChanged) { this.quantityChanged = quantityChanged; }
+
+    public String getPerformedBy() { return performedBy; }
+    public void setPerformedBy(String performedBy) { this.performedBy = performedBy; }
+
+    public boolean isUndone() { return undone; }
+    public void setUndone(boolean undone) { this.undone = undone; }
+
+    public Date getTimestamp() { return timestamp; }
+    public void setTimestamp(Date timestamp) { this.timestamp = timestamp; }
 }

@@ -1,6 +1,25 @@
-# === Custom Tracking Files ===
+# === Custom Tracking Files & Documents ===
 implementation_plan.md
 task.md
+chi_tiet_design_patterns.md
+chi_tiet_design_patterns.docx
+PTDAPM_Quan_Ly_Quan_Cafe.md
+PTDAPM_Quan_Ly_Quan_Cafe.doc
+"PTDAPM_Quản Lý Nhân Sự Trường Đại Học Thủy Lợi.docx"
+Quan_Ly_Nhan_Su_DH_Thuy_Loi_Rut_Gon.md
+docx_content.txt
+docx_content_utf8.txt
+explanation.md
+convert_to_doc.py
+format_docx.py
+read_docx.py
+read_docx_write.py
+temp_docx/
+REPORT_FORMATTING_RULES.md
+*.doc
+*.docx
+*.mdj
+log.txt
 
 # === Java / Maven ===
 backend/target/
